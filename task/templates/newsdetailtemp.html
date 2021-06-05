@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container mt-5">
+
+    <div class="card" style="width: 80 rem;">
+        <img src="{{news.Image.url}}" class="card-img-top" height="450" alt="...">
+        <div class="card-body">
+            <h5 class="card-title text-center">{{news.title}} - {{news.Author}}</h5>
+            <p class="card-text">{{news.description}}</p>
+
+        </div>
+    </div>
+    <br>
+
+</div>
+
+
+{% endblock %}

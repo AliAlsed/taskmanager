@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<div class="container mt-5">
+    {% for newsitem in news %}
+    <div class="card" style="width: 80 rem;">
+        <img src="{{newsitem.Image.url}}" class="card-img-top" height="450" alt="...">
+        <div class="card-body">
+            <h5 class="card-title text-center">{{newsitem.title}}</h5>
+            <a href="{% url 'task.news.detail' newsitem.id %}" class="btn btn-primary">Read More </a>
+
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

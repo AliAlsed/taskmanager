@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'task/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'task/css/styles.css' %}">
+</head>
+
+<body>
+    <nav class="navbar navbar-dark navbar-expand-md bg-primary">
+        <div class="container-fluid"><a class="navbar-brand" href="#">الاصناف</a><button data-toggle="collapse"
+                class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item" role="presentation"><a class="nav-link active"
+                            href="{% url 'category_index' %}"> الرئيسيه </a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link"
+                            href="{% url 'category_create' %}">اضافه</a></li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        {% block content %} {% endblock %}
+    </div>
+    <script src="{% static 'news/js/jquery.min.js' %}"></script>
+    <script src="{% static 'news/bootstrap/js/bootstrap.min.js' %}"></script>
+</body>
+
+</html>

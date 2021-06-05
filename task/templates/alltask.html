@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container mt-3">
+    <div class="table100 ver3 m-b-110">
+        <table data-vertable="ver3">
+            <thead>
+                <tr class="row100 head">
+
+
+
+
+                    <th class="column100 column6 " style="font-size: 20px;" data-column="column6">الحالة</th>
+
+                    <th class="column100 column5" data-column="column5" style="font-size: 20px;">النهاية</th>
+                    <th class="column100 column4" data-column="column4" style="font-size: 20px;">البداية</th>
+                    <th class="column100 column3" data-column="column3" style="font-size: 20px;">تفاصيل البند</th>
+
+                    <th class="column100 column1" data-column="column1" style="font-size: 20px;">المسؤول</th>
+                    <th class="column100 column2" data-column="column2" style="font-size: 20px;">البند</th>
+                    <th class="column100 column7" data-column="column7" style="font-size: 20px;"></th>
+
+
+
+
+
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in alltask%}
+                <tr class="row100">
+
+                    <td class="column100 column6" data-column="column6">
+                        {% if task.status == '1' %}
+                        <b>
+                            Staging
+                        </b>
+                        {% elif task.status == '2' %}
+                        <b> in progress </b>
+                        {% elif task.status == '3' %}
+                        <b> test </b>
+                        {% elif task.status == '4' %}
+                        <b> in review </b>
+                        {% elif task.status == '5' %}
+                        <b> closed </b>
+
+                        {% endif %}
+                    </td>
+
+                    <td class="column100 column5" data-column="column5">{{task.due_date |date:"M d, Y"}}</td>
+                    <td class="column100 column4" data-column="column4">
+
+                        {{task.start_date |date:"M d, Y"}}</td>
+
+                    <td class="column100 column3" data-column="column3">{{task.task_description}}</td>
+
+                    <td class="column100 column1" data-column="column1">{{task.user_names}}</td>
+                    <td class="column100 column2" data-column="column2">{{task.task_name |capfirst }}</td>
+                    <td class="column100 column2 text-center" data-column="column7">{{forloop.counter}}</td>
+                </tr>
+                {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+{% endblock %}

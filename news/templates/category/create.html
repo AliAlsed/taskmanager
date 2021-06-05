@@ -1,0 +1,15 @@
+{% extends 'category/base.html' %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container mt-3">
+    <div class="jumbotron">
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <input class="btn btn-block btn-primary" type="submit" value="اضافه">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

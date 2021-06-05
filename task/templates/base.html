@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bader </title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'task/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'task/css/styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'task/css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'task/css/main.css' %}">
+
+</head>
+
+<body>
+
+    <nav class=" navbar navbar-dark navbar-expand-md bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'task.index' %}"> Home </a>
+
+            <a class="nav-link" href="{% url 'task.news' %}" style="color: white;">News</a>
+            <a class="nav-link" href="{% url 'task.tasks' %}" style="color: white;">Tasks</a>
+            <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+
+
+                <span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+
+
+            </div>
+            {% if user.is_authenticated %}
+            <a href="/logout" class="btn btn-success" style="color: white;">logout</a>
+            {% else %}
+            <div class="text-center">
+            </div>
+            {% endif %}
+        </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+    <!-- <img src="{% static 'task/images/ali.jpg' %}" alt="ali"> -->
+    <script src="{% static 'task/js/jquery.min.js' %}"></script>
+    <script src="{% static 'task/bootstrap/js/bootstrap.min.js' %}"></script>
+
+</body>
+
+</html>

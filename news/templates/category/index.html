@@ -1,0 +1,30 @@
+{% extends 'category/base.html' %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">العنوان</th>
+            <th scope="col">التفاصيل</th>
+
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for category in categories %}
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>{{category.title}}</td>
+            <td>{{category.description}}</td>
+
+        </tr>
+        {% endfor %}
+
+
+
+
+    </tbody>
+</table>
+{% endblock %}

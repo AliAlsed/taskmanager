@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<div class="container mt-5">
+    <div class="card" style="width: 80 rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{task.task_name}} - {{task.due_date}} </h5>
+            <h6 class="card-subtitle mb-2 text-muted">
+
+                {% if task.status == '1' %}
+                <b>
+                    Staging
+                </b>
+                {% elif task.status == '2' %}
+                <b> in progress </b>
+                {% elif task.status == '3' %}
+                <b> test </b>
+                {% elif task.status == '4' %}
+                <b> in review </b>
+                {% elif task.status == '5' %}
+                <b> closed </b>
+
+                {% endif %}
+            </h6>
+            <p class="card-text">{{task.task_description}}</p>
+
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+
+
+    <div class="card" style="width: 80 rem;">
+
+        <div class="card-body">
+            <h5 class="card-title"> Comments </h5>
+
+            <div class="accordion" id="accordionExample">
+                {% for review in reviews %}
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link btn-block text-left" type="button" data-toggle="collapse"
+                                data-target="#collapseOne{{review.id}}" aria-expanded="true"
+                                aria-controls="collapseOne">
+                                {{review.title}} - {{review.user}}
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne{{review.id}}" class="collapse show" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            {{review.content}}
+                        </div>
+                    </div>
+                </div>
+                <br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<div class="container">
+    <div class="card" style="width: 80 rem;">
+        <div class="card-body">
+            <form method="POST" action="">
+                {% csrf_token %}
+
+                {{form}}
+                <br>
+                <button type="submit" class="btn btn-primary mb-2">Add Review </button>
+
+            </form>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
