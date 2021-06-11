@@ -10,14 +10,13 @@ from .forms import ReviewForm
 def index(request):
     print(request.user)
     # get for one value
-    profile = Profile.objects.get(user=request.user)
+    # profile = Profile.objects.get(user=request.user)
     # filter use dor more than one value s
     tasks = Task.objects.filter(user=request.user).all()
     context = {
         'all_task': tasks,
-        'profile': profile
+        # 'profile': profile
     }
-    print(profile.image.url)
     return render(request, 'index.html', context)
 
 
