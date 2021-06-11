@@ -24,7 +24,7 @@ print(BASE_DIR)
 SECRET_KEY = 'django-insecure-z3t!7o_#&518!j%!@)65nl!xbcdd+0j%oj#oc7a8f(nnqc^kr3'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com']
 
